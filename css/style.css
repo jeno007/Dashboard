@@ -134,7 +134,7 @@ body {
   max-width: 560px;
   margin: 0 auto;
   color: #403B33;
-  background: #ead4b3 url("../img/texture_101.jpg") repeat 0 50px;
+  background: #ead4b3 url("../img/lblue013.jpg") repeat 0 50px;
   font-family: "Helvetiva Neue", helvetica, arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -853,9 +853,9 @@ a:visited {
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
   body {
-    background-image: url("../img/texture_101@2X.jpg");
+    background-image: url("../img/lblue013@2X.jpg");
     background-size: 512px 512px;
-    background-image: url("../img/texture_101.jpg") \9; 
+    background-image: url("../img/lblue013.jpg") \9; 
   }
 
   .app-content {
