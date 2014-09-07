@@ -190,7 +190,7 @@ a:visited {
 .app-content {
   position: relative;
   padding: 10px 20px 25px;
-  background: #404040 url("../img/bg-linen.jpg") repeat top left;
+  background: #404040 url("../img/dblue013.jpg") repeat top left;
   color: #fff;
   border-radius: 10px;
   border: 1px solid #333;
@@ -859,9 +859,9 @@ a:visited {
   }
 
   .app-content {
-    background-image: url("../img/bg-linen@2X.jpg");
+    background-image: url("../img/dblue013@2X.jpg");
     background-size: 256px 256px;
-    background-image: url("../img/bg-linen.jpg") \9; 
+    background-image: url("../img/dblue013.jpg") \9; 
   }
 
   .xively-logo {
