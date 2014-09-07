@@ -4,121 +4,109 @@
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>XivelyJS - Xively Javascript Library - Pete Correia</title>
-  <meta name="description" content="xivelyjs - Xively Javascript Library - Pete Correia">
+
+  <title>xivelyJS Sample App</title>
+  <meta name="description" content="App built to sample the use of xivelyJS">
   <meta name="viewport" content="width=device-width">
-  <link rel="shortcut icon" href="/Dashboard/favicon.ico">
+
+  <!-- stylesheet -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- typekit font -->
   <script type="text/javascript" src="//use.typekit.net/nfj5apq.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <script type="text/javascript" src="js/modernizr.custom.js"></script>
+
+  <!-- modernizr -->
+  <script type="text/javascript" src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
-  <header class="app-header clearfix">    
-    <h1 class="app-logo"><a class="app-logo-link" href="/Dashboard/">xively<span class="color-orange-light">js</span></a></h1>
-    <nav class="app-navigation">
-      <ul class="app-navigation-list clearfix">
-        <li class="app-navigation-item">
-          <a class="app-navigation-item-link" href="/Dashboard/docs/">Doc<span class="text-short">s</span><span class="text-long">umentation</span></a>
-        </li>
-        <li class="app-navigation-item">
-          <a class="app-navigation-item-link" href="/Dashboard/tutorial/">Tutorial</a>
-        </li>
-        <li class="app-navigation-item">
-          <a class="app-navigation-item-link" href="/Dashboard/demo/">Demo</a>
-        </li>
-        <li class="app-navigation-item">
-          <a class="app-navigation-item-link" href="/Dashboard/sample-app/">Sample<span class="text-long"> App</span></a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <div role="main" class="app-content">
-    
-    <div class="claim">
-      <h2 class="big-ass-claim">All you need to interact with Xively</h2>
-      <ul class="features unstyled">
-        <li><span class="element-spaced">lightweight</span>~ 2kb gzipped</li>
-        <li><span class="element-spaced">complete</span>with all API methods</li>
-        <li><span class="element-spaced">extended</span>methods for ease of use</li>
-      </ul>
+
+  <div class="app-container">
+
+    <header class="app-header clearfix">
+      <h1 class="app-logo js-app-title icon-home">Dashboard</h1>
+      <div class="app-state"><span class="app-loading-loader"></span></div>
+    </header>
+
+    <div role="main" class="app-content clearfix">
+
+      <div class="app-loading"><span class="app-loading-loader"></span></div>
+
+      <div class="app-content-inner">
+        
+        <form class="dashboard-control js-form clearfix">
+          <fieldset>
+
+            <div class="field clearfix">
+              <label class="input-label icon-lamp" for="lights">Lights</label>
+              <input id="lights" class="input js-lights hidden" type="checkbox">
+              <div class="js-lights-toggle ui-toggle" data-toggle=".js-lights">
+                <span class="ui-toggle-slide clearfix">
+                  <strong class="ui-toggle-on">ON</strong>
+                  <strong class="ui-toggle-handle brushed-metal"></strong>
+                  <strong class="ui-toggle-off">OFF</strong>
+                </span>
+              </div>
+            </div>
+
+            <div class="field clearfix">
+              <label class="input-label icon-tv" for="tv-state">TV</label>
+              <input id="tv-state" class="input js-tv-state hidden" type="checkbox">
+              <div class="js-tv-state-toggle ui-toggle" data-toggle=".js-tv-state">
+                <span class="ui-toggle-slide clearfix">
+                  <strong class="ui-toggle-on">ON</strong>
+                  <strong class="ui-toggle-handle brushed-metal"></strong>
+                  <strong class="ui-toggle-off">OFF</strong>
+                </span>
+              </div>
+            </div>
+
+            <div class="field clearfix">
+              <label class="input-label icon-volume-high" for="volume">Music</label>
+              <button class="volume-up js-volume-up icon-volume-high"></button>
+              <input id="volume" class="input range js-volume" type="range" data-range>
+              <button class="volume-down js-volume-down icon-volume-low"></button>
+            </div>
+
+          </fieldset>
+        </form>
+
+        <section class="dashboard-monitor clearfix">
+          <div class="monitor clearfix">
+            <span class="monitor-label icon-temperature">Temperature</span>
+            <button class="temp-up js-temp-up">+</button>
+            <span class="monitor-value"><strong class="js-temperature">--</strong> °C</span>
+            <button class="temp-down js-temp-down">-</button>
+          </div>
+        </section>
+      </div>
+
     </div>
-    
-    <p class="call-to-action-wrapper text-centered">
-      <a class="button call-to-action" href="https://raw.github.com/jeno007/Dashboard/master/xivelyjs-1.0.4.min.js">Download</a>
-    </p>
-    
-    <h2 class="section-title">Include the file</h2>
-  
-<pre name="code" class="javascript:nocontrols:nogutter">
-// Include after jQuery (required)
-&lt;script src=&quot;http://d23cj0cdvyoxg0.cloudfront.net/xivelyjs-1.0.4.min.js&quot;&gt;&lt;/script&gt;
-</pre>
 
-    
-    <h2 class="section-title">Sample usage</h2>
-    
-<pre name="code" class="javascript:nocontrols:nogutter">
-// Set your API key first
-xively.setKey( "YOUR_KEY_HERE" );
-</pre>
-    
-<pre name="code" class="javascript:nocontrols:nogutter">
-// Get feed content
-xively.feed.get( &quot;504&quot;, function( data ) {
-  console.log( data.title ); // Logs the feed title
-});
-</pre>
-    
-<pre name="code" class="javascript:nocontrols:nogutter">
-// Get realtime updates on a datastream
-xively.datastream.subscribe( &quot;61916&quot;, &quot;sine60&quot;, function( event, data ) {
-  console.log( data.current_value ); // Logs value changes in realtime
-});
-</pre>
+    <footer class="app-footer clearfix">
+      <p class="view-feed">
+        <a href="/xively-js/sample-app/home/">View Home <span>&rarr;</span></a>
+        <a href="/xively-js/"><span>&larr;</span> Back to xivelyJS</a>
+      </p>
+      <a class="xively-logo ir" href="https://xively.com/feeds/79650"><span class="visuallyhidden">Powered by xively</span></a>
+    </footer>
 
-    
-    <h2 class="section-title">jQuery Plugin</h2>
-    
-<pre name="code" class="javascript:nocontrols:nogutter">
-// Set current value on elements
-$('.datastream-value').xively('get', { feed: 61916, datastream: 'sine60' });
-</pre>
-<pre name="code" class="javascript:nocontrols:nogutter">
-// Set and update value in realtime
-$('.datastream-value').xively('live', { feed: 61916, datastream: 'sawtooth60' });
-</pre>
-
-    
-    <h2 class="section-title">Quick Demo</h2>
-    
-    <ul class="demo-streams clearfix unstyled">
-      <li class="demo-stream">light <span class="stream-1"></span></li>
-      <li class="demo-stream">temperature <span class="stream-2"></span></li>
-    </ul>
-    
-    <small>Pro Tip: Stream your CPU stats from your Mac to Xively with <a href="https://github.com/levent/iXively">iXively</a></small>
-    
   </div>
-  <footer class="app-footer tk-bebas-neue">
-    XivelyJS is open source. Contribute code or submit an issue on <a href="https://github.com/jeno007/Dashboard/">github</a>
-    <p class="copyright">&copy; 2012 <a href="https://xively.com">Xively</a> Ltd, a <a href="https://secure.logmein.com/">LogMeIn</a> company</p>
-  </footer>
   
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-  
-  <script defer src="js/xivelyjs-1.0.4.js"></script>
-  <script defer src="js/script.js"></script>
+  <!-- jquery from CDN - with fallback to local -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
 
-  <script>
-    var _gaq=[['_setAccount','UA-22323787-1'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
-  </script>
+  <!-- xivelyJS from CDN - with fallback to local -->
+  <script src="http://d23cj0cdvyoxg0.cloudfront.net/xivelyjs-1.0.4.min.js"></script>
+  <script>window.xively || document.write('<script src="js/vendor/xivelyjs-1.0.4.min.js"><\/script>')</script>
+
+  <!-- UI js -->
+  <script src="js/ui.js"></script>
+
+  <!-- the main script, where the magic happens -->
+  <script src="js/script.js"></script>
 </body>
 </html
