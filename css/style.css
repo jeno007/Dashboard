@@ -316,6 +316,7 @@ a:visited {
 
 .input-label,
 .monitor-label {
+  height: 71px;
   float: left;
   font-size: 24px;
   font-family: "bebas-neue", "helvetica neue", helvetica, arial, sans-serif;
@@ -325,6 +326,7 @@ a:visited {
 .input-label:before,
 .monitor-label:before {
   position: relative;
+  height: 71px;
   top: 10px;
   margin-right: .3em;
   font-size: 40px;
