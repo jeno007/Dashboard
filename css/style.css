@@ -475,6 +475,7 @@ a:visited {
 }
 
 .ui-toggle-slide {
+  vertical-align: middle;
   position: absolute;
   top: 0;
   left: 0;
