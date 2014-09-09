@@ -33,10 +33,11 @@
 	var $temperature1_last_update = $(".js-temperature1-last-update");
 	var $print_date1 = new Date( datastream["at"] );
 	var $utcdate = Date.UTC('now');
-	if (($utcdate-$print_date1) > 6000) $temperature1_last_update.toggleClass("warn", true );
+	var $diff = new Date($utcdate - $print_date1);
+	if (($utcdate-$print_date1) > 6000) $temperature1_last_update.toggleClass("monitor-label-sub", false );
 
         $temperature1.html( datastream["current_value"] );
-	$temperature1_last_update.html( $print_date1.toLocaleDateString("hu-HU").concat(" ").concat($print_date1.toLocaleTimeString("hu-HU") ));
+	$temperature1_last_update.html( $print_date1.toLocaleDateString("hu-HU").concat(" ").concat($print_date1.toLocaleTimeString("hu-HU") ).concat(" ").concat($diff.toLocaleTimeString("hu-HU")));
 
         // make it live
         xively.datastream.subscribe( feedID, "Sensor2", function ( event , data ) {
