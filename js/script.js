@@ -51,6 +51,18 @@
           $temperature.html( data["current_value"] );
         });
       }
+
+      if ( datastream.id === "Battery" ) {
+        var $battery = $(".js-battery");
+
+        $battery.html( datastream["current_value"] );
+
+        // make it live
+        xively.datastream.subscribe( feedID, "Battery", function ( event , data ) {
+          ui.fakeLoad();
+          $battery.html( data["current_value"] );
+        });
+      }
     }
 
     // SHOW UI

@@ -75,7 +75,7 @@ td { vertical-align: top; }
   -webkit-font-smoothing: antialiased;
 }
 .icon-lamp:before {
-  content: "\2e";
+  content: "\21";
 }
 .icon-temperature:before {
   content: "\22";
@@ -112,6 +112,9 @@ td { vertical-align: top; }
 }
 .icon-thumbs-up:before {
   content: "\2d";
+}
+.icon-battery:before {
+  content: "\2e";
 }
 
 /* STYLES */
