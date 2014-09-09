@@ -59,13 +59,14 @@
 
 	var $print_date = new Date( datastream["at"] );
         $battery.html( datastream["current_value"] );
-	$battery_last_update.html( $print_date.toLocaleDateString("hu-HU").concat($print_date.toLocaleTimeString("hu-HU") ));
+	$battery_last_update.html( $print_date.toLocaleDateString("hu-HU").concat(" ").concat($print_date.toLocaleTimeString("hu-HU") ));
 
         // make it live
         xively.datastream.subscribe( feedID, "Battery", function ( event , data ) {
           ui.fakeLoad();
+	  $print_date = Date( data["at"] );
           $battery.html( data["current_value"] );
-	  $battery_last_update.html( data["at"] );
+	  $battery_last_update.html( $print_date.toLocaleDateString("hu-HU").concat(" ").concat($print_date.toLocaleTimeString("hu-HU") ));
         });
       }
     }
