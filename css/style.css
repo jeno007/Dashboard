@@ -54,7 +54,7 @@ td { vertical-align: top; }
 
 @font-face {
   font-family: 'xivelyjs-sample-app';
-  src:url('fonts/xivelyjs-sample-app.ttf') format('truetype');
+  src:url('../fonts/xivelyjs-sample-app.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
