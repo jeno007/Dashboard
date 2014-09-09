@@ -54,13 +54,16 @@
 
       if ( datastream.id === "Battery" ) {
         var $battery = $(".js-battery");
+	var $battery-last-update = $(".js-battery-last-update");
 
         $battery.html( datastream["current_value"] );
+	$battery-last-update.html( datastream["at"] );
 
         // make it live
         xively.datastream.subscribe( feedID, "Battery", function ( event , data ) {
           ui.fakeLoad();
           $battery.html( data["current_value"] );
+	  $battery-last-update.html( data["at"] );
         });
       }
     }
