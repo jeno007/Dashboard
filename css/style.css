@@ -325,8 +325,6 @@ a:visited {
 .input-label-sub.warn,
 .monitor-label-sub.warn {
   color: #c29912;
-  text-shadow: 0 -1px 0 #95750a,
-               0 1px 0 #dfb015;
 }
 
 .input-label-sub:before,
