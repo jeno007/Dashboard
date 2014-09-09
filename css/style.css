@@ -334,6 +334,18 @@ a:visited {
                0 1px 0 #505050;
 }
 
+.input-label-sub .warn:before,
+.monitor-label-sub .warn:before {
+  position: relative;
+  height: 10px;
+  top: 2px;
+  margin-right: .3em;
+  font-size: 16px;
+  color: #c29912;
+  text-shadow: 0 -1px 0 #95750a,
+               0 1px 0 #dfb015;
+}
+
 .input-label,
 .monitor-label {
   height: 71px;
