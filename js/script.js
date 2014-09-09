@@ -64,7 +64,7 @@
         // make it live
         xively.datastream.subscribe( feedID, "Battery", function ( event , data ) {
           ui.fakeLoad();
-	  $print_date = Date( data["at"] );
+	  $print_date = new Date( data["at"] );
           $battery.html( data["current_value"] );
 	  $battery_last_update.html( $print_date.toLocaleDateString("hu-HU").concat(" ").concat($print_date.toLocaleTimeString("hu-HU") ));
         });
