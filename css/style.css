@@ -322,10 +322,8 @@ a:visited {
   font-size: 10px;
 }
 
-.input-label-sub11.warn,
-.monitor-label-sub11.warn {
-  float: left;
-  font-size: 10px;
+.input-label-sub.warn,
+.monitor-label-sub.warn {
   color: #c29912;
   text-shadow: 0 -1px 0 #95750a,
                0 1px 0 #dfb015;
@@ -343,8 +341,8 @@ a:visited {
                0 1px 0 #505050;
 }
 
-.input-label-sub.warn:before,
-.monitor-label-sub.warn:before {
+.input-label-sub11.warn:before,
+.monitor-label-sub11.warn:before {
   position: relative;
   height: 10px;
   top: 2px;
