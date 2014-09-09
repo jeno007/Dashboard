@@ -1,11 +1,11 @@
 (function ( $ ){
   "use strict";
 
-  var feedID = 79650;
+  var feedID = 1526458792;
 
   // SET API KEY
   
-  xively.setKey( "FzZOVUxKRPl_Tvvtr1z77b8gOVCSAKxlTnlwSzQrZ3U4MD0g" ); // do not use this one, create your own at xively.com
+  xively.setKey( "zMuZgPlBvuCe5KzspjnyuQ7mHiBC7dEJpQd4our5gznuxQhz" ); // do not use this one, create your own at xively.com
 
   // get all feed data in one shot
 
