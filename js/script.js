@@ -30,25 +30,35 @@
 
       if ( datastream.id === "Sensor2" ) {
         var $temperature = $(".js-temperature1");
+	var $temperature_last_update = $(".js-temperature1-last-update");
+	var $print_date = new Date( datastream["at"] );
 
-        $temperature.html( datastream["at"] );
+        $temperature.html( datastream["current_value"] );
+	$temperature_last_update.html( $print_date.toLocaleDateString("hu-HU").concat(" ").concat($print_date.toLocaleTimeString("hu-HU") ));
 
         // make it live
         xively.datastream.subscribe( feedID, "Sensor2", function ( event , data ) {
           ui.fakeLoad();
+	  $print_date = new Date( data["at"] );
           $temperature.html( data["current_value"] );
+	  $temperature_last_update.html( $print_date.toLocaleDateString("hu-HU").concat(" ").concat($print_date.toLocaleTimeString("hu-HU") ));
         });
       }
 
       if ( datastream.id === "Sensor1" ) {
         var $temperature = $(".js-temperature");
+	var $temperature_last_update = $(".js-temperature-last-update");
+	var $print_date = new Date( datastream["at"] );
 
         $temperature.html( datastream["current_value"] );
+	$temperature_last_update.html( $print_date.toLocaleDateString("hu-HU").concat(" ").concat($print_date.toLocaleTimeString("hu-HU") ));
 
         // make it live
         xively.datastream.subscribe( feedID, "Sensor1", function ( event , data ) {
           ui.fakeLoad();
+	  $print_date = new Date( data["at"] );
           $temperature.html( data["current_value"] );
+	  $temperature_last_update.html( $print_date.toLocaleDateString("hu-HU").concat(" ").concat($print_date.toLocaleTimeString("hu-HU") ));
         });
       }
 
