@@ -80,7 +80,7 @@ td { vertical-align: top; }
   -webkit-font-smoothing: antialiased;
 }
 .icon-lamp:before {
-  content: "\21";
+  content: "\2e";
 }
 .icon-temperature:before {
   content: "\22";
