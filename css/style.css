@@ -306,6 +306,10 @@ a:visited {
   margin-top: 1em;
 }
 
+.monitor-sub {
+  margin-top: 2px;
+}
+
 .input,
 .ui-toggle,
 .monitor-value {
