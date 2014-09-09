@@ -319,6 +319,18 @@ a:visited {
   font-size: 6px;
 }
 
+.input-label-sub:before,
+.monitor-label-sub:before {
+  position: relative;
+  height: 18px;
+  top: 2px;
+  margin-right: .3em;
+  font-size: 6px;
+  color: #202020;
+  text-shadow: 0 -1px 0 #101010,
+               0 1px 0 #505050;
+}
+
 .input-label,
 .monitor-label {
   height: 71px;
