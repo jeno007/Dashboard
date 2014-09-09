@@ -53,11 +53,16 @@
       }
 
       if ( datastream.id === "Battery" ) {
+	var options = {
+    		weekday: "long", year: "numeric", month: "short",
+    		day: "numeric", hour: "2-digit", minute: "2-digit"
+	};
         var $battery = $(".js-battery");
 	var $battery_last_update = $(".js-battery-last-update");
 
+	var $print_date = new Date( datastream["at"] );
         $battery.html( datastream["current_value"] );
-	$battery_last_update.html( datastream["at"] );
+	$battery_last_update.html( $print_date.toLocaleTimeString("hu-HU", options) );
 
         // make it live
         xively.datastream.subscribe( feedID, "Battery", function ( event , data ) {
