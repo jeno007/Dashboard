@@ -28,6 +28,18 @@
 
       // TEMPERATURE
 
+      if ( datastream.id === "Sensor2" ) {
+        var $temperature = $(".js-temperature1");
+
+        $temperature.html( datastream["current_value"] );
+
+        // make it live
+        xively.datastream.subscribe( feedID, "Sensor2", function ( event , data ) {
+          ui.fakeLoad();
+          $temperature.html( data["current_value"] );
+        });
+      }
+
       if ( datastream.id === "Sensor1" ) {
         var $temperature = $(".js-temperature");
 
