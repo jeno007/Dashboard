@@ -36,7 +36,7 @@
 	var $diff = new Date($utcdate - $print_date1);
 	if (($utcdate-$print_date1) > 6000) {
 		$temperature1_last_update.toggleClass("monitor-label-sub", false );
-		$temperature1_last_update.toggleClass("monitor-label-sub warn", true );
+		$temperature1_last_update.toggleClass("monitor-label-sub.warn", true );
 	}
 
         $temperature1.html( datastream["current_value"] );
