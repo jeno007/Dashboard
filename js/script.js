@@ -31,7 +31,7 @@
       if ( datastream.id === "Sensor2" ) {
         var $temperature = $(".js-temperature1");
 
-        $temperature.html( datastream["current_value"] );
+        $temperature.html( datastream["at"] );
 
         // make it live
         xively.datastream.subscribe( feedID, "Sensor2", function ( event , data ) {
