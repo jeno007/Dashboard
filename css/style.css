@@ -334,8 +334,8 @@ a:visited {
                0 1px 0 #505050;
 }
 
-.input-label-sub .warn:before,
-.monitor-label-sub .warn:before {
+.input-label-sub.warn:before,
+.monitor-label-sub.warn:before {
   position: relative;
   height: 10px;
   top: 2px;
