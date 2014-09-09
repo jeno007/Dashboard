@@ -37,7 +37,7 @@
 	if (($utcdate-$print_date1) > 6000) $temperature1_last_update.toggleClass("monitor-label-sub", false );
 
         $temperature1.html( datastream["current_value"] );
-	$temperature1_last_update.html( $print_date1.toLocaleDateString("hu-HU").concat(" ").concat($print_date1.toLocaleTimeString("hu-HU") ).concat(" ").concat($diff.toLocaleTimeString("hu-HU")));
+	$temperature1_last_update.html( $print_date1.toLocaleDateString("hu-HU").concat(" ").concat($print_date1.toLocaleTimeString("hu-HU") ).concat(" ").concat($utcdate.toLocaleTimeString("hu-HU")));
 
         // make it live
         xively.datastream.subscribe( feedID, "Sensor2", function ( event , data ) {
