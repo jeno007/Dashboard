@@ -5,7 +5,7 @@
 
   // SET API KEY
   
-  xively.setKey( "lOWIgWM1gbSOvARHq7Ze29LrxNA73KWrKon8yh96feQnJHRA" ); // do not use this one, create your own at xively.com
+  xively.setKey( "zMuZgPlBvuCe5KzspjnyuQ7mHiBC7dEJpQd4our5gznuxQhz" ); // do not use this one, create your own at xively.com
 
   // get all feed data in one shot
 
