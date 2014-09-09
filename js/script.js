@@ -47,8 +47,8 @@
           ui.fakeLoad();
 	  
 	  $print_date1 = new Date( data["at"] );
-	  $utcdate = Date.UTC('now');
-	  if (($utcdate-$print_date1) > 600000) $temperature1_last_update.toggleClass("monitor-label-sub monitor-label-sub.warn");
+	  $utcdate = new Date(Date.now());
+	  if (($utcdate-$print_date1) > 600000) $temperature1_last_update.toggleClass("warn", false );
           $temperature1.html( data["current_value"] );
 	  $temperature1_last_update.html( $print_date1.toLocaleDateString("hu-HU").concat(" ").concat($print_date1.toLocaleTimeString("hu-HU") ));
         });
