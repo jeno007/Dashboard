@@ -32,7 +32,7 @@
         var $temperature1 = $(".js-temperature1");
 	var $temperature1_last_update = $(".js-temperature1-last-update");
 	var $print_date1 = new Date( datastream["at"] );
-	var $utcdate = new Date.UTC('now');
+	var $utcdate = new Date(Date.now());
 	var $diff = new Date($utcdate - $print_date1);
 	if (($utcdate-$print_date1) > 6000) $temperature1_last_update.toggleClass("monitor-label-sub", false );
 
