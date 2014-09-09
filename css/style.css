@@ -312,8 +312,8 @@ a:visited {
   float: right;
 }
 
-.input-label,
-.monitor-label {
+.input-label-sub,
+.monitor-label-sub {
   height: 18;
   float: left;
   font-size: 6px;
