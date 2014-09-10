@@ -1,4 +1,4 @@
-(function recname ( $ ){
+(function recname ( ){
   "use strict";
 
   var feedID = 1526458792;
@@ -95,6 +95,6 @@
      $(".app-content-inner").addClass("open");
     });
   });
+  setTimeout(arguments.callee, 60000);
 
-
-})( jQuery );
+})( );
