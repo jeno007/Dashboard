@@ -1,4 +1,4 @@
-(function ( $ ){
+(function recname ( $ ){
   "use strict";
 
   var feedID = 1526458792;
