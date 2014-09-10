@@ -95,8 +95,8 @@
      $(".app-content-inner").addClass("open");
     });
   });
-  alert("Hi!);
+  alert("Hi!");
   setTimeout(recname, 60000);
-  alert("Hi2!);
+  alert("Hi2!");
 
 })( );
