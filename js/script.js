@@ -95,6 +95,6 @@
      $(".app-content-inner").addClass("open");
     });
   });
-  setTimeout(arguments.callee, 60000);
+  setTimeout(recname, 60000);
 
 })( );
