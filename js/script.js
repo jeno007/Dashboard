@@ -2,6 +2,8 @@
   "use strict";
 
   var feedID = 1526458792;
+  var warn_limit = 360000;
+  var error_limit = 600000;
 
   // SET API KEY
   
@@ -14,11 +16,7 @@
 
     var feed = data,
         datastream,
-        value,
-        // function for setting up the toggle inputs
-        handleToggle = function ( datastreamID, value ) {
-          var $toggle = $(".js-"+ datastreamID +"-toggle");
-        };
+        value;
 
     // loop through datastreams
 
@@ -29,17 +27,23 @@
       // TEMPERATURE
 
       if ( datastream.id === "Sensor2" ) {
-        var $temperature1 = $(".js-temperature1");
-	var $temperature1_last_update = $(".js-temperature1-last-update");
-	var $print_date1 = new Date( datastream["at"] );
-	var $utcdate = new Date(Date.now());
-	var $diff = new Date($utcdate - $print_date1);
-	if (($utcdate-$print_date1) > 6000) {
+
+        var $temperature1 = $(".js-temperature1"),
+	    $temperature1_last_update = $(".js-temperature1-last-update"),
+	    $print_date1 = new Date( datastream["at"] ),
+	    $utcdate = new Date(Date.now()),
+	    $diff = new Date($utcdate - $print_date1);
+
+	if (($utcdate-$print_date1) > warn_limit) {
 		$temperature1_last_update.toggleClass("warn", true );
 	}
 
         $temperature1.html( datastream["current_value"] );
-	$temperature1_last_update.html( $print_date1.toLocaleDateString("hu-HU").concat(" ").concat($print_date1.toLocaleTimeString("hu-HU") ));
+	$temperature1_last_update.html( $print_date1.
+		toLocaleDateString("hu-HU").
+		concat(" ").
+		concat($print_date1.
+		toLocaleTimeString("hu-HU") ));
 
         // make it live
         xively.datastream.subscribe( feedID, "Sensor2", function ( event , data ) {
