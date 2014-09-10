@@ -30,65 +30,107 @@
 
         var $temperature1 = $(".js-temperature1"),
 	    $temperature1_last_update = $(".js-temperature1-last-update"),
-	    $print_date1 = new Date( datastream["at"] ),
+	    $atdate1 = new Date( datastream["at"] ),
 	    $utcdate = new Date(Date.now()),
-	    $diff = new Date($utcdate - $print_date1);
+	    $diff = new Date($utcdate - $atdate1);
 
-	if (($utcdate-$print_date1) > warn_limit) {
+	if (($utcdate-$atdate1) > warn_limit) {
 		$temperature1_last_update.toggleClass("warn", true );
 	}
 
         $temperature1.html( datastream["current_value"] );
-	$temperature1_last_update.html( $print_date1.
+	$temperature1_last_update.html( 
+		$atdate1.
 		toLocaleDateString("hu-HU").
 		concat(" ").
-		concat($print_date1.
-		toLocaleTimeString("hu-HU") ));
+		concat($atdate1.toLocaleTimeString("hu-HU") ));
 
         // make it live
         xively.datastream.subscribe( feedID, "Sensor2", function ( event , data ) {
           ui.fakeLoad();
 	  
-	  $print_date1 = new Date( data["at"] );
+	  $atdate1 = new Date( data["at"] );
 	  $utcdate = new Date(Date.now());
-	  if (($utcdate-$print_date1) < 600000) $temperature1_last_update.toggleClass("warn", false );
+	  if (($utcdate-$atdate1) < warn_limit) {
+		$temperature1_last_update.toggleClass("warn", false );
+	  }
           $temperature1.html( data["current_value"] );
-	  $temperature1_last_update.html( $print_date1.toLocaleDateString("hu-HU").concat(" ").concat($print_date1.toLocaleTimeString("hu-HU") ));
+	  $temperature1_last_update.html(
+		$atdate1.
+		toLocaleDateString("hu-HU").
+		concat(" ").
+		concat($atdate1.toLocaleTimeString("hu-HU") ));
         });
       }
 
       if ( datastream.id === "Sensor1" ) {
-        var $temperature = $(".js-temperature");
-	var $temperature_last_update = $(".js-temperature-last-update");
-	var $print_date = new Date( datastream["at"] );
+        var $temperature = $(".js-temperature"),
+	    $temperature_last_update = $(".js-temperature-last-update"),
+	    $atdate = new Date( datastream["at"] ),
+	    $utcdate = new Date(Date.now()),
+	    $diff = new Date($utcdate - $atdate);
+
+	if (($utcdate-$atdate) > warn_limit) {
+		$temperature_last_update.toggleClass("warn", true );
+	}
 
         $temperature.html( datastream["current_value"] );
-	$temperature_last_update.html( $print_date.toLocaleDateString("hu-HU").concat(" ").concat($print_date.toLocaleTimeString("hu-HU") ));
+	$temperature_last_update.html(
+		$atdate
+		.toLocaleDateString("hu-HU")
+		.concat(" ")
+		.concat($atdate.toLocaleTimeString("hu-HU") ));
 
         // make it live
         xively.datastream.subscribe( feedID, "Sensor1", function ( event , data ) {
           ui.fakeLoad();
-	  $print_date = new Date( data["at"] );
+	  $atdate = new Date( data["at"] );
+	  $utcdate = new Date(Date.now());
+	  if (($utcdate-$atdate) < warn_limit) {
+		$temperature_last_update.toggleClass("warn", false );
+	  }
           $temperature.html( data["current_value"] );
-	  $temperature_last_update.html( $print_date.toLocaleDateString("hu-HU").concat(" ").concat($print_date.toLocaleTimeString("hu-HU") ));
+	  $temperature_last_update.html(
+		$atdate
+		.toLocaleDateString("hu-HU")
+		.concat(" ")
+		.concat($atdate.toLocaleTimeString("hu-HU") ));
         });
       }
 
       if ( datastream.id === "Battery" ) {
 
-        var $battery = $(".js-battery");
-	var $battery_last_update = $(".js-battery-last-update");
+        var $battery = $(".js-battery"),
+	    $battery_last_update = $(".js-battery-last-update"),
+	    $atdateb = new Date( datastream["at"] ),
+	    $utcdate = new Date(Date.now()),
+	    $diff = new Date($utcdate - $atdateb);
 
-	var $print_date = new Date( datastream["at"] );
+	if (($utcdate-$atdateb) > warn_limit) {
+		$battery_last_update.toggleClass("warn", true );
+	}
+
         $battery.html( datastream["current_value"] );
-	$battery_last_update.html( $print_date.toLocaleDateString("hu-HU").concat(" ").concat($print_date.toLocaleTimeString("hu-HU") ));
+	$battery_last_update.html(
+		$atdateb
+		.toLocaleDateString("hu-HU")
+		.concat(" ")
+		.concat($atdateb.toLocaleTimeString("hu-HU") ));
 
         // make it live
         xively.datastream.subscribe( feedID, "Battery", function ( event , data ) {
           ui.fakeLoad();
-	  $print_date = new Date( data["at"] );
+	  $atdateb = new Date( data["at"] );
+	  $utcdate = new Date(Date.now());
+	  if (($utcdate-$atdateb) < warn_limit) {
+		$battery_last_update.toggleClass("warn", false );
+	  }
           $battery.html( data["current_value"] );
-	  $battery_last_update.html( $print_date.toLocaleDateString("hu-HU").concat(" ").concat($print_date.toLocaleTimeString("hu-HU") ));
+	  $battery_last_update.html(
+		$atdateb
+		.toLocaleDateString("hu-HU")
+		.concat(" ")
+		.concat($atdateb.toLocaleTimeString("hu-HU") ));
         });
       }
     }
