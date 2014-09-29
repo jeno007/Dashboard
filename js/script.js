@@ -83,7 +83,7 @@
 		concat(" ").
 		concat($atdate1.toLocaleTimeString("hu-HU") ));
 	}
-        });
+        }());
       }
       }
 
