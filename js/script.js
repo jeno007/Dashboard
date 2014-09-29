@@ -76,7 +76,7 @@
 		$(".js-Sensor2-last-update").toggleClass("warn", false );
 	  }
           $(".js-Sensor2").html( datastream["current_value"] );
-	  $(".js-Sensor2-last-update").html(
+	  $(".js-" + datastream.id + "-last-update").html(
 		$atdate1.
 		toLocaleDateString("hu-HU").
 		concat(" ").
