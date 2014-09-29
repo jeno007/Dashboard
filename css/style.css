@@ -355,7 +355,7 @@ a:visited {
 .monitor-label {
   height: 71px;
   float: left;
-  font-size: 24px;
+  font-size: 20px;
   font-family: "Open Sans", "helvetica neue", helvetica, arial, sans-serif;
   text-shadow: 0 1px 0 #101010;
 }
