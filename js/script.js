@@ -11,6 +11,19 @@
 
   // get all feed data in one shot
 
+  var $app-content = $("app-content-inner");
+  $app-content.append('
+	<section class="dashboard-monitor clearfix">
+          <div class="monitor clearfix">
+            <span class="monitor-label icon-battery">Akkumulátor2</span>
+            <span class="monitor-value"><strong class="js-battery2">--</strong> V</span>
+          </div>
+          <div class="monitor-sub clearfix">
+            <span class="monitor-label-sub">Frissítve:</span>
+            <span class="monitor-label-sub js-battery2-last-update">--</span>
+          </div>
+        </section>');
+
   function main_func (data) {
 //  xively.feed.get (feedID, function (data) {
     // this code is executed when we get data back from Xively
