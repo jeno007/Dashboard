@@ -14,7 +14,8 @@
   var $app_content = $(".app-content-inner");
  
   function d_line ( type, name, feed_id, metric ) { 
-  $app_content.append('\
+  if ($(".js-" + feed_id).length == 0) {
+  	$app_content.append('\
 	<section class="dashboard-monitor clearfix">\
           <div class="monitor clearfix">\
             <span class="monitor-label icon-' + type + '">' + name + '</span>\
@@ -25,6 +26,7 @@
             <span class="monitor-label-sub js-' + feed_id + '-last-update">--</span>\
           </div>\
         </section>');
+	}
   }
 
 //  function d_line ( type, name, feed_id, metric )
