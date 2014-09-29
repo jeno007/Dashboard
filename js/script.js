@@ -11,7 +11,8 @@
 
   // get all feed data in one shot
 
-  xively.feed.get (feedID, function (data) {
+  function main_func (data) {
+//  xively.feed.get (feedID, function (data) {
     // this code is executed when we get data back from Xively
 
     var feed = data,
@@ -141,6 +142,7 @@
      $(".app-content-inner").addClass("open");
     });
   });
+  xively.feed.get (feedID, main_func (data);
   setTimeout(recname, 600000);
 
 })( );
