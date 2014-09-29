@@ -1,7 +1,9 @@
 (function recname ( ){
   "use strict";
 
-  var feedID = 1526458792;
+  var feedID1 = 1526458792;
+  var feedID2 = 72161;
+  var feedID3 = 78658;
   var warn_limit = 360000;
   var error_limit = 600000;
 
@@ -9,29 +11,30 @@
   
   xively.setKey( "zMuZgPlBvuCe5KzspjnyuQ7mHiBC7dEJpQd4our5gznuxQhz" ); // do not use this one, create your own at xively.com
 
-  // get all feed data in one shot
 
-  var $app_content = $(".app-content-inner");
  
   function d_line ( type, name, feed_id, metric ) { 
   if ($(".js-" + feed_id).length == 0) {
-  	$app_content.append('\
-	<section class="dashboard-monitor clearfix">\
-          <div class="monitor clearfix">\
-            <span class="monitor-label icon-' + type + '">' + name + '</span>\
-            <span class="monitor-value"><strong class="js-' + feed_id + '">--</strong> ' + metric + '</span>\
-          </div>\
-          <div class="monitor-sub clearfix">\
-            <span class="monitor-label-sub">Frissítve:</span>\
-            <span class="monitor-label-sub js-' + feed_id + '-last-update">--</span>\
-          </div>\
-        </section>');
+  	$(".app-content-inner").append('\
+		<section class="dashboard-monitor clearfix">\
+          	  <div class="monitor clearfix">\
+            	    <span class="monitor-label icon-' + type + '">' + name + '</span>\
+            	    <span class="monitor-value"><strong class="js-' + feed_id + '">--</strong> ' + metric + '</span>\
+          	  </div>\
+          	  <div class="monitor-sub clearfix">\
+            	    <span class="monitor-label-sub">Frissítve:</span>\
+            	    <span class="monitor-label-sub js-' + feed_id + '-last-update">--</span>\
+          	  </div>\
+        	</section>');
 	}
   }
 
 //  function d_line ( type, name, feed_id, metric )
-  d_line("temperature","TESZT NÉV","battery2", "VV");
+  d_line("battery","Nap érzékelő","Battery", "V");
+  d_line("temperature","1-es szenzor","Sensor1", "°C");
   d_line("temperature","2-es szenzor","Sensor2", "°C");
+  d_line("temperature","Dolgozó szoba","Temperature", "°C");
+  d_line("lamp","Aktuális fogyasztás","Power", "W");
 
   function main_func (data) {
 //  xively.feed.get (feedID, function (data) {
@@ -45,10 +48,9 @@
 
     for (var x = 0, len = feed.datastreams.length; x < len; x++) {
       datastream = feed.datastreams[x];
-      value = parseInt(datastream["current_value"]);
+      //value = parseInt(datastream["current_value"]);
 
-      // TEMPERATURE
-      if ( datastream.id === "Sensor2" ) {
+      //if ( datastream.id === "Sensor2" ) {
       if ($(".js-" + datastream.id).length != 0) {
 
 	var $atdate1 = new Date( datastream["at"] );
@@ -68,62 +70,26 @@
 
         // make it live
         xively.datastream.subscribe( feedID, datastream.id, function ( did ) {
-	return function (event, data) {
-          ui.fakeLoad();
+		return function (event, data) {
+          		ui.fakeLoad();
 	  
-	  var $atdate1 = new Date( data["at"] );
-	  var $utcdate = new Date(Date.now());
-	  if (($utcdate-$atdate1) < warn_limit) {
-		$(".js-Sensor2-last-update").toggleClass("warn", false );
-	  }
-          $(".js-Sensor2").html( datastream["current_value"] );
-	  $(".js-" + did + "-last-update").html(
-		$atdate1.
-		toLocaleDateString("hu-HU").
-		concat(" ").
-		concat($atdate1.toLocaleTimeString("hu-HU") ));
-	}
+	  		var $atdate1 = new Date( data["at"] );
+	  		var $utcdate = new Date(Date.now());
+	  		if (($utcdate-$atdate1) < warn_limit) {
+				$(".js-" + did + "-last-update").toggleClass("warn", false );
+	  		}
+          		$(".js-" + did).html( datastream["current_value"] );
+	  		$(".js-" + did + "-last-update").html(
+				$atdate1.
+				toLocaleDateString("hu-HU").
+				concat(" ").
+				concat($atdate1.toLocaleTimeString("hu-HU") ));
+		}
         }(datastream.id));
       }
-      }
+      //}
 
-//      if ( datastream.id === "Sensor2" ) {
-//
-//       var $temperature1 = $(".js-temperature1"),
-//	    $temperature1_last_update = $(".js-temperature1-last-update"),
-//	    $atdate1 = new Date( datastream["at"] ),
-//	    $utcdate = new Date(Date.now()),
-//	    $diff = new Date($utcdate - $atdate1);
-//
-//	if (($utcdate-$atdate1) > warn_limit) {
-//		$temperature1_last_update.toggleClass("warn", true );
-//	}
-//
-//       $temperature1.html( datastream["current_value"] );
-//	$temperature1_last_update.html( 
-//		$atdate1.
-//		toLocaleDateString("hu-HU").
-//		concat(" ").
-//		concat($atdate1.toLocaleTimeString("hu-HU") ));
-//
-//       // make it live
-//      xively.datastream.subscribe( feedID, "Sensor2", function ( event , data ) {
-//         ui.fakeLoad();
-//	  
-//	  $atdate1 = new Date( data["at"] );
-//	  $utcdate = new Date(Date.now());
-//	  if (($utcdate-$atdate1) < warn_limit) {
-//		$temperature1_last_update.toggleClass("warn", false );
-//	  }
-//         $temperature1.html( data["current_value"] );
-//	  $temperature1_last_update.html(
-//		$atdate1.
-//		toLocaleDateString("hu-HU").
-//		concat(" ").
-//		concat($atdate1.toLocaleTimeString("hu-HU") ));
-//        });
-//      }
-
+/*
       if ( datastream.id === "Sensor1" ) {
         var $temperature = $(".js-temperature"),
 	    $temperature_last_update = $(".js-temperature-last-update"),
@@ -195,6 +161,7 @@
         });
       }
     }
+*/
 
     // SHOW UI
 
@@ -202,7 +169,9 @@
      $(".app-content-inner").addClass("open");
     });
   };
-  xively.feed.get (feedID, main_func );
+  xively.feed.get (feedID1, main_func );
+  xively.feed.get (feedID2, main_func );
+  xively.feed.get (feedID3, main_func );
   setTimeout(recname, 600000);
 
 })( );
