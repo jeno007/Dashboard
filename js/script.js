@@ -67,21 +67,23 @@
 		concat($atdate1.toLocaleTimeString("hu-HU") ));
 
         // make it live
-        xively.datastream.subscribe( feedID, datastream.id, function ( event , data ) {
+        xively.datastream.subscribe( feedID, datastream.id, function ( event , data, id ) {
+	return function (event, data) {
           ui.fakeLoad();
 	  
-	  $atdate1 = new Date( data["at"] );
-	  $utcdate = new Date(Date.now());
+	  var $atdate1 = new Date( data["at"] );
+	  var $utcdate = new Date(Date.now());
 	  if (($utcdate-$atdate1) < warn_limit) {
 		$(".js-Sensor2-last-update").toggleClass("warn", false );
 	  }
           $(".js-Sensor2").html( datastream["current_value"] );
-	  $(".js-" + datastream.id + "-last-update").html(
+	  $(".js-" + id + "-last-update").html(
 		$atdate1.
 		toLocaleDateString("hu-HU").
 		concat(" ").
 		concat($atdate1.toLocaleTimeString("hu-HU") ));
-        });
+	}
+        }(,,datastream.id);
       }
       }
 
