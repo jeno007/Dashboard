@@ -43,20 +43,16 @@
         value;
 
     // loop through datastreams
-
     for (var x = 0, len = feed.datastreams.length; x < len; x++) {
       datastream = feed.datastreams[x];
 
       if ($(".js-" + datastream.id).length != 0) {
-
 	var $atdate1 = new Date( datastream["at"] );
 	var $utcdate = new Date(Date.now());
 	var $diff = new Date($utcdate - $atdate1);
-
 	if (($utcdate-$atdate1) > warn_limit) {
 		$(".js-" + datastream.id + "-last-update").toggleClass("warn", true );
 	}
-
         $(".js-" + datastream.id).html( datastream["current_value"] );
 	$(".js-" + datastream.id + "-last-update").html(
 		$atdate1.
@@ -83,13 +79,14 @@
 		};
         }(datastream.id));
       };
+    };
   };
 
     // SHOW UI
 
-    $(".app-loading").fadeOut(200, function(){
-     $(".app-content-inner").addClass("open");
-    });
+  $(".app-loading").fadeOut(200, function(){
+   $(".app-content-inner").addClass("open");
+  });
   xively.feed.get (feedID1, main_func );
   xively.feed.get (feedID2, main_func );
   xively.feed.get (feedID3, main_func );
