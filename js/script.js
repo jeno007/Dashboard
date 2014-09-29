@@ -31,6 +31,8 @@
 
 //  function d_line ( type, name, feed_id, metric )
   d_line("lamp","Aktuális fogyasztás","Power", "W");
+  d_line("lamp","Aktuális fogyasztás","Gas", "l/min");
+  d_line("lamp","Számláló","Gas-counter", "m3");
   d_line("temperature","Dolgozó szoba","Temperature", "°C");
   d_line("temperature","Konyha","Kitchen-tem", "°C");
   d_line("temperature","Gyerek szoba","Living-room-temp", "°C");
@@ -40,6 +42,9 @@
   d_line("battery","Gyerek szoba","Living-room-emon-battery", "V");
   d_line("temperature","1-es szenzor","Sensor1", "°C");
   d_line("temperature","2-es szenzor","Sensor2", "°C");
+  d_line("temperature","3-es szenzor","Sensor3", "°C");
+  d_line("temperature","4-es szenzor","Sensor4", "°C");
+  d_line("temperature","5-es szenzor","Sensor5", "°C");
 
   function main_func (data) {
 
