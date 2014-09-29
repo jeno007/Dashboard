@@ -48,6 +48,40 @@
       value = parseInt(datastream["current_value"]);
 
       // TEMPERATURE
+      if ( datastream.id === "Sensor2" ) {
+
+	var $atdate1 = new Date( datastream["at"] );
+	var $utcdate = new Date(Date.now());
+	var $diff = new Date($utcdate - $atdate1);
+
+	if (($utcdate-$atdate1) > warn_limit) {
+		$(".js-" + datastream.id + "_last_update").toggleClass("warn", true );
+	}
+
+        $(".js-" + datastream.id).html( datastream["current_value"] );
+	$(".js-" + datastream.id + "_last_update").html(
+		$atdate1.
+		toLocaleDateString("hu-HU").
+		concat(" ").
+		concat($atdate1.toLocaleTimeString("hu-HU") ));
+
+        // make it live
+        xively.datastream.subscribe( feedID, datastream.id, function ( event , data ) {
+          ui.fakeLoad();
+	  
+	  $atdate1 = new Date( data["at"] );
+	  $utcdate = new Date(Date.now());
+	  if (($utcdate-$atdate1) < warn_limit) {
+		$(".js-" + datastream.id + "_last_update").toggleClass("warn", false );
+	  }
+          $(".js-" + datastream.id).html( datastream["current_value"] );
+	  $(".js-" + datastream.id + "_last_update").html(
+		$atdate1.
+		toLocaleDateString("hu-HU").
+		concat(" ").
+		concat($atdate1.toLocaleTimeString("hu-HU") ));
+        });
+      }
 
       if ( datastream.id === "Sensor2" ) {
 
