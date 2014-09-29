@@ -55,11 +55,11 @@
 	var $diff = new Date($utcdate - $atdate1);
 
 	if (($utcdate-$atdate1) > warn_limit) {
-		$(".js-" + datastream.id + "_last_update").toggleClass("warn", true );
+		$(".js-" + datastream.id + "-last-update").toggleClass("warn", true );
 	}
 
         $(".js-" + datastream.id).html( datastream["current_value"] );
-	$(".js-" + datastream.id + "_last_update").html(
+	$(".js-" + datastream.id + "-last-update").html(
 		$atdate1.
 		toLocaleDateString("hu-HU").
 		concat(" ").
@@ -72,10 +72,10 @@
 	  $atdate1 = new Date( data["at"] );
 	  $utcdate = new Date(Date.now());
 	  if (($utcdate-$atdate1) < warn_limit) {
-		$(".js-" + datastream.id + "_last_update").toggleClass("warn", false );
+		$(".js-" + datastream.id + "-last-update").toggleClass("warn", false );
 	  }
           $(".js-" + datastream.id).html( datastream["current_value"] );
-	  $(".js-" + datastream.id + "_last_update").html(
+	  $(".js-" + datastream.id + "-last-update").html(
 		$atdate1.
 		toLocaleDateString("hu-HU").
 		concat(" ").
