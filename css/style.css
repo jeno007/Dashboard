@@ -165,7 +165,7 @@ a:visited {
 .app-header {
   position: relative;
   padding: 20px 0;
-  font-family: "bebas-neue", "helvetica neue", helvetica, arial, sans-serif;
+  font-family: "Open Sans", "helvetica neue", helvetica, arial, sans-serif;
 }
 
 .app-logo {
@@ -356,7 +356,7 @@ a:visited {
   height: 71px;
   float: left;
   font-size: 24px;
-  font-family: "bebas-neue", "helvetica neue", helvetica, arial, sans-serif;
+  font-family: "Open Sans", "helvetica neue", helvetica, arial, sans-serif;
   text-shadow: 0 1px 0 #101010;
 }
 
@@ -458,7 +458,7 @@ a:visited {
 .view-feed {
   float: left;
   margin: 0 0 15px;
-  font-family: "bebas-neue", "helvetica neue", helvetica, arial, sans-serif;
+  font-family: "Open Sans", "helvetica neue", helvetica, arial, sans-serif;
 }
 
 .view-feed span {
