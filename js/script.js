@@ -141,8 +141,8 @@
     $(".app-loading").fadeOut(200, function(){
      $(".app-content-inner").addClass("open");
     });
-  });
-  xively.feed.get (feedID, main_func (data);
+  };
+  xively.feed.get (feedID, main_func (data));
   setTimeout(recname, 600000);
 
 })( );
