@@ -13,12 +13,12 @@
 
   var $app_content = $(".app-content-inner");
  
-  function d_line ( type, name, feed_id ) { 
+  function d_line ( type, name, feed_id, metric ) { 
   $app_content.append('\
 	<section class="dashboard-monitor clearfix">\
           <div class="monitor clearfix">\
             <span class="monitor-label icon-' + type + '">' + name + '</span>\
-            <span class="monitor-value"><strong class="js-' + feed_id + '">--</strong> V</span>\
+            <span class="monitor-value"><strong class="js-' + feed_id + '">--</strong> ' + metric + '</span>\
           </div>\
           <div class="monitor-sub clearfix">\
             <span class="monitor-label-sub">Frissítve:</span>\
@@ -27,7 +27,7 @@
         </section>');
   }
 
-  d_line("temperature","TESZT NÉV","battery2");
+  d_line("temperature","TESZT NÉV","battery2", "VV");
 
   function main_func (data) {
 //  xively.feed.get (feedID, function (data) {
