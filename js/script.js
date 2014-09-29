@@ -61,7 +61,7 @@
 		concat($atdate1.toLocaleTimeString("hu-HU") ));
 
         // make it live
-        xively.datastream.subscribe( feedID, datastream.id, function ( did ) {
+        xively.datastream.subscribe( feed.id, datastream.id, function ( did ) {
 		return function (event, data) {
           		ui.fakeLoad();
 	  
