@@ -30,11 +30,16 @@
   }
 
 //  function d_line ( type, name, feed_id, metric )
+  d_line("lamp","Aktuális fogyasztás","Power", "W");
+  d_line("temperature","Dolgozó szoba","Temperature", "°C");
+  d_line("temperature","Konyha","Kitchen-tem", "°C");
+  d_line("temperature","Gyerek szoba","Living-room-temp", "°C");
+  d_line("temperature","Gyerek szoba pára","Living-room-humidity", "%");
   d_line("battery","Nap érzékelő","Battery", "V");
+  d_line("battery","Konyha","Emon-kitchen-battery", "V");
+  d_line("battery","Gyerek szoba","Living-room-emon-battery", "V");
   d_line("temperature","1-es szenzor","Sensor1", "°C");
   d_line("temperature","2-es szenzor","Sensor2", "°C");
-  d_line("temperature","Dolgozó szoba","Temperature", "°C");
-  d_line("lamp","Aktuális fogyasztás","Power", "W");
 
   function main_func (data) {
 
