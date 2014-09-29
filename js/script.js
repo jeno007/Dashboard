@@ -27,7 +27,9 @@
         </section>');
   }
 
+//  function d_line ( type, name, feed_id, metric )
   d_line("temperature","TESZT NÉV","battery2", "VV");
+  d_line("temperature","2-es szenzor","Sensor2", "C");
 
   function main_func (data) {
 //  xively.feed.get (feedID, function (data) {
