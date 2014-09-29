@@ -67,7 +67,7 @@
 		concat($atdate1.toLocaleTimeString("hu-HU") ));
 
         // make it live
-        xively.datastream.subscribe( feedID, datastream.id, function ( event , data ) {
+        xively.datastream.subscribe( feedID, "Sensor2", function ( event , data ) {
           ui.fakeLoad();
 	  
 	  $atdate1 = new Date( data["at"] );
@@ -85,26 +85,26 @@
       }
       }
 
-      if ( datastream.id === "Sensor2" ) {
-
-        var $temperature1 = $(".js-temperature1"),
-	    $temperature1_last_update = $(".js-temperature1-last-update"),
-	    $atdate1 = new Date( datastream["at"] ),
-	    $utcdate = new Date(Date.now()),
-	    $diff = new Date($utcdate - $atdate1);
-
-	if (($utcdate-$atdate1) > warn_limit) {
-		$temperature1_last_update.toggleClass("warn", true );
-	}
-
-        $temperature1.html( datastream["current_value"] );
-	$temperature1_last_update.html( 
-		$atdate1.
-		toLocaleDateString("hu-HU").
-		concat(" ").
-		concat($atdate1.toLocaleTimeString("hu-HU") ));
-
-        // make it live
+//      if ( datastream.id === "Sensor2" ) {
+//
+//       var $temperature1 = $(".js-temperature1"),
+//	    $temperature1_last_update = $(".js-temperature1-last-update"),
+//	    $atdate1 = new Date( datastream["at"] ),
+//	    $utcdate = new Date(Date.now()),
+//	    $diff = new Date($utcdate - $atdate1);
+//
+//	if (($utcdate-$atdate1) > warn_limit) {
+//		$temperature1_last_update.toggleClass("warn", true );
+//	}
+//
+//       $temperature1.html( datastream["current_value"] );
+//	$temperature1_last_update.html( 
+//		$atdate1.
+//		toLocaleDateString("hu-HU").
+//		concat(" ").
+//		concat($atdate1.toLocaleTimeString("hu-HU") ));
+//
+//       // make it live
 //      xively.datastream.subscribe( feedID, "Sensor2", function ( event , data ) {
 //         ui.fakeLoad();
 //	  
@@ -120,7 +120,7 @@
 //		concat(" ").
 //		concat($atdate1.toLocaleTimeString("hu-HU") ));
 //        });
-      }
+//      }
 
       if ( datastream.id === "Sensor1" ) {
         var $temperature = $(".js-temperature"),
