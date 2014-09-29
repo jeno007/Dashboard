@@ -73,10 +73,10 @@
 	  $atdate1 = new Date( data["at"] );
 	  $utcdate = new Date(Date.now());
 	  if (($utcdate-$atdate1) < warn_limit) {
-		$(".js-" + datastream.id + "-last-update").toggleClass("warn", false );
+		$(".js-Sensor2-last-update").toggleClass("warn", false );
 	  }
-          $(".js-" + datastream.id).html( datastream["current_value"] );
-	  $(".js-" + datastream.id + "-last-update").html(
+          $(".js-Sensor2").html( datastream["current_value"] );
+	  $(".js-Sensor2-last-update").html(
 		$atdate1.
 		toLocaleDateString("hu-HU").
 		concat(" ").
