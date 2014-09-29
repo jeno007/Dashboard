@@ -11,7 +11,7 @@
 
   // get all feed data in one shot
 
-  var $app_content = $("app-content-inner");
+  var $app_content = $(".app-content-inner");
   $app_content.append('\
 	<section class="dashboard-monitor clearfix">\
           <div class="monitor clearfix">\
