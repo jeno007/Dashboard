@@ -42,9 +42,9 @@
   d_line("battery","Gyerek szoba","Living-room-emon-battery", "V");
   d_line("temperature","1-es szenzor","Sensor1", "°C");
   d_line("temperature","2-es szenzor","Sensor2", "°C");
-  d_line("temperature","3-es szenzor","Sensor3", "°C");
+  d_line("temperature","3-as szenzor","Sensor3", "°C");
   d_line("temperature","4-es szenzor","Sensor4", "°C");
-  d_line("temperature","5-es szenzor","Sensor5", "°C");
+  d_line("temperature","5-ös szenzor","Sensor5", "°C");
 
   function main_func (data) {
 
@@ -78,10 +78,10 @@
 	  		var $atdate1 = new Date( data["at"] );
 	  		var $utcdate = new Date(Date.now());
 	  		if (($utcdate-$atdate1) < warn_limit) {
-				$(".js-" + did + "-last-update").toggleClass("warn", false );
+				$(".js-" + data.id + "-last-update").toggleClass("warn", false );
 	  		}
-          		$(".js-" + did).html( data["current_value"] );
-	  		$(".js-" + did + "-last-update").html(
+          		$(".js-" + data.id).html( data["current_value"] );
+	  		$(".js-" + data.id + "-last-update").html(
 				$atdate1.
 				toLocaleDateString("hu-HU").
 				concat(" ").
