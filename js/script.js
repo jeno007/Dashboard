@@ -71,23 +71,21 @@
 		concat($atdate1.toLocaleTimeString("hu-HU") ));
 
         // make it live
-        xively.datastream.subscribe( feed.id, datastream.id, function () {
-		return function (event, data) {
-          		ui.fakeLoad();
-	  
-	  		var $atdate1 = new Date( data["at"] );
-	  		var $utcdate = new Date(Date.now());
-	  		if (($utcdate-$atdate1) < warn_limit) {
-				$(".js-" + data.id + "-last-update").toggleClass("warn", false );
-	  		}
-          		$(".js-" + data.id).html( data["current_value"] );
-	  		$(".js-" + data.id + "-last-update").html(
-				$atdate1.
-				toLocaleDateString("hu-HU").
-				concat(" ").
-				concat($atdate1.toLocaleTimeString("hu-HU") ));
-		};
-        }());
+        xively.datastream.subscribe( feed.id, datastream.id, function (event, data) {
+          	ui.fakeLoad();
+	 
+		var $atdate1 = new Date( data["at"] );
+	  	var $utcdate = new Date(Date.now());
+	  	if (($utcdate-$atdate1) < warn_limit) {
+			$(".js-" + data.id + "-last-update").toggleClass("warn", false );
+	  	}
+          	$(".js-" + data.id).html( data["current_value"] );
+	  	$(".js-" + data.id + "-last-update").html(
+			$atdate1.
+			toLocaleDateString("hu-HU").
+			concat(" ").
+			concat($atdate1.toLocaleTimeString("hu-HU") ));
+	};
       };
     };
   };
