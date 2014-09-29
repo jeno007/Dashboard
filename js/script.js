@@ -11,8 +11,8 @@
 
   // get all feed data in one shot
 
-  var $app-content = $("app-content-inner");
-  $app-content.append('
+  var $app_content = $("app-content-inner");
+  $app_content.append('
 	<section class="dashboard-monitor clearfix">
           <div class="monitor clearfix">
             <span class="monitor-label icon-battery">Akkumulátor2</span>
