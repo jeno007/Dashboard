@@ -49,7 +49,7 @@
 
       // TEMPERATURE
       if ( datastream.id === "Sensor2" ) {
-      if ($(".js-" + feed_id).length != 0) {
+      if ($(".js-" + datastream.id).length != 0) {
 
 	var $atdate1 = new Date( datastream["at"] );
 	var $utcdate = new Date(Date.now());
