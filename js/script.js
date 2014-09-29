@@ -142,7 +142,7 @@
      $(".app-content-inner").addClass("open");
     });
   };
-  xively.feed.get (feedID, main_func (data));
+  xively.feed.get (feedID, main_func );
   setTimeout(recname, 600000);
 
 })( );
