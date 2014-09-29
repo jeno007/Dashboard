@@ -12,17 +12,22 @@
   // get all feed data in one shot
 
   var $app_content = $(".app-content-inner");
+ 
+  function d_line ( type, name, feed_id ) { 
   $app_content.append('\
 	<section class="dashboard-monitor clearfix">\
           <div class="monitor clearfix">\
-            <span class="monitor-label icon-battery">Akkumulátor2</span>\
-            <span class="monitor-value"><strong class="js-battery2">--</strong> V</span>\
+            <span class="monitor-label icon-' + type + '">' + name + '</span>\
+            <span class="monitor-value"><strong class="js-' + feed_id + '">--</strong> V</span>\
           </div>\
           <div class="monitor-sub clearfix">\
             <span class="monitor-label-sub">Frissítve:</span>\
-            <span class="monitor-label-sub js-battery2-last-update">--</span>\
+            <span class="monitor-label-sub js-' + feed_id + '-last-update">--</span>\
           </div>\
         </section>');
+  }
+
+  d_line("battery","TESZ NÉV","battery2");
 
   function main_func (data) {
 //  xively.feed.get (feedID, function (data) {
