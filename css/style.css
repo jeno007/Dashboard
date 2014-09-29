@@ -821,8 +821,8 @@ a:visited {
   }
 
   .monitor-value {
-    margin-top: 29px;
-    font-size: 20px;
+    margin-top: 10px;
+    font-size: 30px;
   }
 
   .range {
@@ -840,14 +840,14 @@ a:visited {
 
   .input-label:before,
   .monitor-label:before {
-    top: 10px;
-    font-size: 40px;
+    top: 5px;
+    font-size: 35px;
     margin-right: .5em;
   }
 
   .input-label,
   .monitor-label {
-    font-size: 35px;
+    font-size: 30px;
   }
 
   .app-content {
