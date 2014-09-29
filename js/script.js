@@ -70,7 +70,7 @@
 	  		if (($utcdate-$atdate1) < warn_limit) {
 				$(".js-" + did + "-last-update").toggleClass("warn", false );
 	  		}
-          		$(".js-" + did).html( datastream["current_value"] );
+          		$(".js-" + did).html( data["current_value"] );
 	  		$(".js-" + did + "-last-update").html(
 				$atdate1.
 				toLocaleDateString("hu-HU").
