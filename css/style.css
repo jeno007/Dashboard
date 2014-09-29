@@ -841,7 +841,7 @@ a:visited {
   .input-label:before,
   .monitor-label:before {
     top: 10px;
-    font-size: 50px;
+    font-size: 40px;
     margin-right: .5em;
   }
 
