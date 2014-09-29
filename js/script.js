@@ -11,8 +11,6 @@
   
   xively.setKey( "zMuZgPlBvuCe5KzspjnyuQ7mHiBC7dEJpQd4our5gznuxQhz" ); // do not use this one, create your own at xively.com
 
-
- 
   function d_line ( type, name, feed_id, metric ) { 
   if ($(".js-" + feed_id).length == 0) {
   	$(".app-content-inner").append('\
@@ -57,35 +55,35 @@
       datastream = feed.datastreams[x];
 
       if ($(".js-" + datastream.id).length != 0) {
-	var $atdate1 = new Date( datastream["at"] );
-	var $utcdate = new Date(Date.now());
-	var $diff = new Date($utcdate - $atdate1);
-	if (($utcdate-$atdate1) > warn_limit) {
-		$(".js-" + datastream.id + "-last-update").toggleClass("warn", true );
-	}
-        $(".js-" + datastream.id).html( datastream["current_value"] );
-	$(".js-" + datastream.id + "-last-update").html(
-		$atdate1.
-		toLocaleDateString("hu-HU").
-		concat(" ").
-		concat($atdate1.toLocaleTimeString("hu-HU") ));
-
-        // make it live
-        xively.datastream.subscribe( feed.id, datastream.id, function (event, data) {
-          	ui.fakeLoad();
-	 
-		var $atdate1 = new Date( data["at"] );
-	  	var $utcdate = new Date(Date.now());
-	  	if (($utcdate-$atdate1) < warn_limit) {
-			$(".js-" + data.id + "-last-update").toggleClass("warn", false );
-	  	}
-          	$(".js-" + data.id).html( data["current_value"] );
-	  	$(".js-" + data.id + "-last-update").html(
+		var $atdate1 = new Date( datastream["at"] );
+		var $utcdate = new Date(Date.now());
+		var $diff = new Date($utcdate - $atdate1);
+		if (($utcdate-$atdate1) > warn_limit) {
+			$(".js-" + datastream.id + "-last-update").toggleClass("warn", true );
+		}
+        	$(".js-" + datastream.id).html( datastream["current_value"] );
+		$(".js-" + datastream.id + "-last-update").html(
 			$atdate1.
 			toLocaleDateString("hu-HU").
 			concat(" ").
 			concat($atdate1.toLocaleTimeString("hu-HU") ));
-	});
+
+        	// make it live
+        	xively.datastream.subscribe( feed.id, datastream.id, function (event, data) {
+          		ui.fakeLoad();
+	 
+			var $atdate1 = new Date( data["at"] );
+	  		var $utcdate = new Date(Date.now());
+	  		if (($utcdate-$atdate1) < warn_limit) {
+				$(".js-" + data.id + "-last-update").toggleClass("warn", false );
+	  		}
+          		$(".js-" + data.id).html( data["current_value"] );
+	  		$(".js-" + data.id + "-last-update").html(
+				$atdate1.
+				toLocaleDateString("hu-HU").
+				concat(" ").
+				concat($atdate1.toLocaleTimeString("hu-HU") ));
+		});
       };
     };
   };
