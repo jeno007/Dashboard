@@ -27,7 +27,7 @@
         </section>');
   }
 
-  d_line("battery","TESZ NÉV","battery2");
+  d_line("temperature","TESZT NÉV","battery2");
 
   function main_func (data) {
 //  xively.feed.get (feedID, function (data) {
