@@ -105,21 +105,21 @@
 		concat($atdate1.toLocaleTimeString("hu-HU") ));
 
         // make it live
-        xively.datastream.subscribe( feedID, "Sensor2", function ( event , data ) {
-          ui.fakeLoad();
-	  
-	  $atdate1 = new Date( data["at"] );
-	  $utcdate = new Date(Date.now());
-	  if (($utcdate-$atdate1) < warn_limit) {
-		$temperature1_last_update.toggleClass("warn", false );
-	  }
-          $temperature1.html( data["current_value"] );
-	  $temperature1_last_update.html(
-		$atdate1.
-		toLocaleDateString("hu-HU").
-		concat(" ").
-		concat($atdate1.toLocaleTimeString("hu-HU") ));
-        });
+//      xively.datastream.subscribe( feedID, "Sensor2", function ( event , data ) {
+//         ui.fakeLoad();
+//	  
+//	  $atdate1 = new Date( data["at"] );
+//	  $utcdate = new Date(Date.now());
+//	  if (($utcdate-$atdate1) < warn_limit) {
+//		$temperature1_last_update.toggleClass("warn", false );
+//	  }
+//         $temperature1.html( data["current_value"] );
+//	  $temperature1_last_update.html(
+//		$atdate1.
+//		toLocaleDateString("hu-HU").
+//		concat(" ").
+//		concat($atdate1.toLocaleTimeString("hu-HU") ));
+//        });
       }
 
       if ( datastream.id === "Sensor1" ) {
