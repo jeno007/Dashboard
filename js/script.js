@@ -67,7 +67,7 @@
 		concat($atdate1.toLocaleTimeString("hu-HU") ));
 
         // make it live
-        xively.datastream.subscribe( feedID, datastream.id, function ( event , data, id ) {
+        xively.datastream.subscribe( feedID, datastream.id, function ( event , data ) {
 	return function (event, data) {
           ui.fakeLoad();
 	  
@@ -77,13 +77,13 @@
 		$(".js-Sensor2-last-update").toggleClass("warn", false );
 	  }
           $(".js-Sensor2").html( datastream["current_value"] );
-	  $(".js-" + id + "-last-update").html(
+	  $(".js-" + datastream.id + "-last-update").html(
 		$atdate1.
 		toLocaleDateString("hu-HU").
 		concat(" ").
 		concat($atdate1.toLocaleTimeString("hu-HU") ));
 	}
-        }(,,datastream.id);
+        }();
       }
       }
 
