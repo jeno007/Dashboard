@@ -30,7 +30,7 @@
 //  function d_line ( type, name, feed_id, metric )
   d_line("lamp","Aktuális fogyasztás","Power", "W");
   d_line("lamp","Aktuális fogyasztás","Gas", "l/min");
-  d_line("lamp","Számláló","Gas-counter", "m3");
+  d_line("counter","Számláló","Gas-counter", "m3");
   d_line("temperature","Dolgozó szoba","Temperature", "°C");
   d_line("temperature","Konyha","Kitchen-tem", "°C");
   d_line("temperature","Gyerek szoba","Living-room-temp", "°C");

@@ -119,6 +119,10 @@ td { vertical-align: top; }
 .icon-humidity:before {
   content: "\2f";
 }
+.icon-counter:before {
+  content: "\30";
+}
+
 
 
 /* STYLES */
