@@ -122,8 +122,9 @@ td { vertical-align: top; }
 .icon-counter:before {
   content: "\30";
 }
-
-
+.icon-gas:before {
+  content: "\32";
+}
 
 /* STYLES */
 
